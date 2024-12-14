@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="dfjc">
+            <img class="text-pic" src="{{ url_for('static', filename='text.png') }}" alt="" />
+        </div>
+        <div class="logo-area">
+            <img class="pic" src="{{ url_for('static', filename='car.gif') }}" alt="" />
+        </div>
+        <div class="centered-container">
+            <div class="input-value-container">
+                <!-- Input -->
+                <form method="POST" action="/index">
+                    <div class="input-group">
+                        <label for="">Year</label>
+                        <input type="number" name="year" min="1980" placeholder="Nhập năm sản xuất" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Kilometers traveled</label>
+                        <input type="number" name="km_driven" min="0" placeholder="Nhập số km đã đi" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Fuel</label>
+                        <select name="fuel">
+                            <option value="" disabled>Chọn loại nhiên liệu</option>
+                            <option value="0">Diesel</option>
+                            <option value="1">Petrol</option>
+                            <option value="2">CNG</option>
+                            <option value="3">LPG</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="">Seller type</label>
+                        <select name="seller_type">
+                            <option value="" disabled>Chọn loại người bán</option>
+                            <option value="0">Individual</option>
+                            <option value="1">Dealer</option>
+                            <option value="2">Trustmark dealer</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="">Transmission</label>
+                        <select name="transmission">
+                            <option value="" disabled>Chọn loại hộp số</option>
+                            <option value="0">Manual</option>
+                            <option value="1">Automatic</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="">Owner</label>
+                        <select name="owner">
+                            <option value="" disabled>Chọn lần sở hữu</option>
+                            <option value="0">First Owner</option>
+                            <option value="1">Second Owner</option>
+                            <option value="2">Third Owner</option>
+                            <option value="3">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="">Kilometers per Liter</label>
+                        <input type="number" name="mileage" min="0" step="0.01" placeholder="Nhập số km/lít" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Engine</label>
+                        <input type="number" name="engine" min="0" step="0.01" placeholder="Nhập số cm³" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Max power</label>
+                        <input type="number" name="max_power" min="0" step="0.01"
+                            placeholder="Nhập công suất tối đa (bhp)" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Seats</label>
+                        <input type="number" name="seats" min="0" placeholder="Nhập số lượng ghế" />
+                    </div>
+                    <br />
+                    <button class="button-85" type="submit">Start Prediction</button>
+                </form>
+                <div class="pred-result-area">
+                    <div class="pred-text">Car price:<span>{{ display }} USD</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <button class="button-85" role="button">Button 85</button> -->
+</body>
+
+</html>
